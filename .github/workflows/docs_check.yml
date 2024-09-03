@@ -75,12 +75,12 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Download changed aarch64 images
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: changed_images_aarch64
           path: ${{ runner.temp }}
       - name: Download changed amd64 images
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: changed_images_amd64
           path: ${{ runner.temp }}
@@ -109,7 +109,7 @@ jobs:
       - name: Download changed images
         # even if artifact does not exist, e.g. on `do not test` label or failed Docker job
         continue-on-error: true
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: changed_images
           path: ${{ env.TEMP_PATH }}
@@ -141,7 +141,7 @@ jobs:
           REPO_COPY=${{runner.temp}}/docs_check/ClickHouse
           EOF
       - name: Download changed images
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: changed_images
           path: ${{ env.TEMP_PATH }}
